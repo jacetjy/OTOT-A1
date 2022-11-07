@@ -1,16 +1,10 @@
-FROM node:16
+FROM nginx:alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /nginx-sample/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
-
-RUN npm install
+RUN rm /etc/nginx/nginx.conf
 
 COPY . .
 
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+COPY ./nginx.conf /etc/nginx/nginx.conf
