@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 # Create app directory
-WORKDIR /nginx-sample/app
+WORKDIR /nginx-sample
 
 RUN rm /etc/nginx/nginx.conf
 

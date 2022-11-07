@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app:
+    image: jace1711/app
+    ports:
+      - "3000:3000"
+
+  nginx:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3000:3000"
+    depends_on:
+      - app
+    restart: always
